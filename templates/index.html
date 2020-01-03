@@ -1,0 +1,278 @@
+{% extends 'layoutx.html' %}
+
+{% block body %}
+    <section id="iq-home" class="bannerq-bg iq-bg-fixed iq-box-shadow iq-over-black-90" style='background: rgba(232, 133, 66, 100)'>
+        <div id="particles-js"></div>
+        
+        
+        <div class="container">
+            <div class="row banner-text">
+                <div class="col-md-8 col-lg-8 hidden-xs hidden-sm">
+                    <h1 class="iq-font-white iq-tw-8" data-animation="animated fadeInLeft"><small class="iq-font-white iq-tw-6"><b class="iq-font-white">&#9679;</b> Soyez prêts pour votre satellisation</small>MISSION APOLLOGIF</h1>
+                    <a class="button bt-white iq-mr-15" href="https://apollogif.fr"> <i class="fa fa-space-shuttle"></i> Site de la liste Apollogif</a>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    {% from "includes/_formhelpers.html" import render_field %}
+                        
+                    <form class="banner-form", method="post">
+                        <div class="form-icon">
+                                    <img class="img-responsive center-block" src="{{ url_for('static', filename='images/logo-white.png') }}" alt="#">
+                                </div>
+                    
+                        <h3 class="iq-tw-7">{% with messages = get_flashed_messages() %}
+                                {% if not(messages) %}<small>GRANDES CRÊPES</small>
+                        Une petite faim ?</h3>
+                        <div class="form-group">
+                            {{ render_field(form.lieu, class_="form-control", placeholder="Lieu de livraison") }}
+                        </div>
+                        <div class="form-group">
+                            {{ render_field(form.nutella, class_="form-control", placeholder="Crêpes nutella") }}
+                        </div>
+                        <div class="form-group">
+                            {{ render_field(form.citronsucre, class_="form-control", placeholder="Crêpes citron-sucre") }}
+                        </div>
+                        <div class="form-group">
+                            {{ render_field(form.speculos, class_="form-control", placeholder="Crêpes spéculos") }}
+                        </div>
+                        <div class="form-group">
+                            {{ render_field(form.sucre, class_="form-control", placeholder="Crêpes sucre") }}
+                        </div>
+                        <div class="form-group">
+                            {{ render_field(form.confiture, class_="form-control", placeholder="Crêpes confiture") }}
+                        </div>
+                        <div class="form-group">
+                                {{ render_field(form.instructions, class_="form-control", placeholder="Instructions") }}
+                        </div>
+                    
+                        {% endif %}
+
+                    {% endwith %}
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        
+                        {% for message in messages %}
+                            
+                            <button value="{{ message }}" class="button btn-success btn-block text-center iq-mt-30"/>
+                        {% endfor %}
+                        
+                        {% else %}
+                        <input type="submit" name="upvote" value="Commander" class="button btn-block text-center iq-mt-30"/>
+                        {% endif %}
+
+                    {% endwith %}
+                        </form>
+                        
+                </div>
+            </div>
+        </div>
+    </section>
+<div class="fullscreen background">
+        <script>
+                function divtest(){
+                    var pattern = Trianglify({
+                    width: window.innerWidth,
+                    height: window.innerHeight,
+                    cell_size: 80,
+                    x_colors:'YlOrRd',
+                    
+                    stroke_width: 3
+                    
+                  }).png();
+                    var pattern64 = pattern.substr(pattern.indexOf('base64') + 7);
+        
+                var sheet = (function() {
+                    var style = document.createElement("style");
+        
+                    style.appendChild(document.createTextNode(""));
+        
+                    document.head.appendChild(style);
+        
+                    return style.sheet;
+                })();
+                sheet.insertRule(".background { background: transparent url(data:image/png;base64,"+pattern64+"); }", 0.5);
+                }
+                </script>
+        <!-- How it Works -->
+
+        <section class="overview-block-ptb iq-how-it-work">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="heading-title">
+                            <h2 class="title iq-tw-6">Principe de fonctionnement</h2>
+                            <div class="divider"></div>
+                            <h3 class="iq-tw-3 iq-font-light-blue iq-mt-40 iq-plr-90">Hotline de crêpes : MISSION APOLLOGIF</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-4 col-lg-4">
+                        <div class="iq-Work-box text-center">
+                            <div class="Work-icon">
+                                <i aria-hidden="true" class="fa fa-tasks"></i>
+                                <div class="line"></div>
+                            </div>
+                            <h4 class="iq-tw-6 iq-mt-20 iq-mb-15">Commandez</h4>
+                            <p>Vous devez vous connecter avec viarezo ! Vous choisissez vos crêpes, leur ganitures et indiquez le lieu de livraison (même une salle de cours) </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4 re-mt-30">
+                        <div class="iq-Work-box text-center">
+                            <div class="Work-icon">
+                                <i aria-hidden="true" class="fa fa-truck"></i>
+                                <div class="line"></div>
+                            </div>
+                            <h4 class="iq-tw-6 iq-mt-20 iq-mb-15">Livraison</h4>
+                            <p>Notre équipe s'engage à vous livrer en moins de 15 minutes partout sur le campus votre commande chaude !</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 col-lg-4 re-mt-30">
+                        <div class="iq-Work-box text-center">
+                            <div class="Work-icon">
+                                <i aria-hidden="true" class="fa fa-check-circle"></i>
+                            </div>
+                            <h4 class="iq-tw-6 iq-mt-20 iq-mb-15">Savourez</h4>
+                            <p>Mangez tout, pas de gâchis !</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+  
+
+
+
+
+<section class="overview-block-ptb  iq-bg-fixed " id ="astronaut">
+        <div class="box-of-star1">
+        <div class="star star-position1"></div>
+        <div class="star star-position2"></div>
+        <div class="star star-position3"></div>
+        <div class="star star-position4"></div>
+        <div class="star star-position5"></div>
+        <div class="star star-position6"></div>
+        <div class="star star-position7"></div>
+      </div>
+      <div class="box-of-star2">
+        <div class="star star-position1"></div>
+        <div class="star star-position2"></div>
+        <div class="star star-position3"></div>
+        <div class="star star-position4"></div>
+        <div class="star star-position5"></div>
+        <div class="star star-position6"></div>
+        <div class="star star-position7"></div>
+      </div>
+      <div class="box-of-star3">
+        <div class="star star-position1"></div>
+        <div class="star star-position2"></div>
+        <div class="star star-position3"></div>
+        <div class="star star-position4"></div>
+        <div class="star star-position5"></div>
+        <div class="star star-position6"></div>
+        <div class="star star-position7"></div>
+      </div>
+      <div class="box-of-star4">
+        <div class="star star-position1"></div>
+        <div class="star star-position2"></div>
+        <div class="star star-position3"></div>
+        <div class="star star-position4"></div>
+        <div class="star star-position5"></div>
+        <div class="star star-position6"></div>
+        <div class="star star-position7"></div>
+      </div>
+      <div class="astronaut" data-js="astro">
+        <div class="head"></div>
+        <div class="arm arm-left"></div>
+        <div class="arm arm-right"></div>
+        <div class="body">
+          <div class="panel"></div>
+        </div>
+        <div class="leg leg-left"></div>
+        <div class="leg leg-right"></div>
+        <div class="schoolbag"></div>
+        </div>
+</section>
+<!-- Frequently Asked Questions -->
+
+<section class="fullscreen background">
+        <script>
+                function divtest(){
+                    var pattern = Trianglify({
+                    width: window.innerWidth,
+                    height: window.innerHeight +50,
+                    cell_size: 80,
+                    x_colors:'YlOrRd',
+                    
+                    stroke_width: 3
+                    
+                  }).png();
+                    var pattern64 = pattern.substr(pattern.indexOf('base64') + 7);
+        
+                var sheet = (function() {
+                    var style = document.createElement("style");
+        
+                    style.appendChild(document.createTextNode(""));
+        
+                    document.head.appendChild(style);
+        
+                    return style.sheet;
+                })();
+                sheet.insertRule(".background { background: transparent url(data:image/png;base64,"+pattern64+"); }", 0.5);
+                }
+                </script>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="heading-title">
+                        <p><br></p>
+                        <h2 class="title iq-tw-6">Explication du service</h2>
+                        <div class="divider"></div>
+                        <p>Vous vous posez des questions ? Vous trouverez votre réponse ici</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                <h6 class="iq-tw-6 iq-font-black iq-pb-20 lead">Ce service de livraison de crêpes à été mis en place par la liste BDE Apollogif</h6>
+                    <p>Pendant une semaine entière nous vous proposons gratuitement un service de livraison de crêpes à travers tout le campus </p>
+                    
+                </div>
+                <div class="col-sm-12 col-md-6 re-mt-30">
+                    <div class="iq-accordion">
+                        <div class="iq-ad-block ad-active"> <a href="javascript:void(0)" class="ad-title iq-tw-6 iq-font-grey"> <span class="ad-icon"><i class="ion-ios-infinite-outline" aria-hidden="true"></i></span>Pourquoi un service de livraison gratuit ?</a>
+
+                        <div class="ad-details">
+                        <div class="row">
+            
+                        <div class="col-sm-12"> Nous souhaitons que notre service soit largement utilisé. Cela nous permet d'attester de notre organisation sans faille et d'une trésorie efficace.</div>   
+                    </div>
+                    </div>
+                        </div>
+
+                        <div class="iq-ad-block"> <a href="javascript:void(0)" class="ad-title iq-tw-6 iq-font-grey"> <span class="ad-icon"><i class="ion-ios-time-outline" aria-hidden="true"></i></span>Comment sont acheminées les crêpes ?</a>
+                            <div class="ad-details">Nous avons un réseau de livreurs regulierement renouvelés. Leur trajet est de plus optimisée grâce à cette application WEB</div>
+                        </div>
+                        <div class="iq-ad-block"> <a href="javascript:void(0)" class="ad-title iq-tw-6 iq-font-grey"> <span class="ad-icon"><i class="ion-ios-compose-outline" aria-hidden="true"></i></span>Quels sont les délais de livraison ?</a>
+                            <div class="ad-details">
+                            <div class="row">
+                     
+                        <div class="col-sm-12">Soyez sur d'une chose : notre priorité est votre satisfaction, et cela passe par des délais de livraison court. Comptez 10 minutes.<img alt="#" class="img-responsive" src="{{ url_for('static', filename='images/faq-1.jpg') }}"></div>
+                        
+                    </div>
+                            </div>
+                        </div>
+                        <div class="iq-ad-block"> <a href="javascript:void(0)" class="ad-title iq-tw-6 iq-font-grey"> <span class="ad-icon"><i class="ion-ios-loop" aria-hidden="true"></i></span>Comment sont les crêpes ?</a>
+                            <div class="col-sm-12">Personne n'aime les petites crêpes, et quand c'est chaud c'est déliceux ! On vous sert donc des crêpes grandes et chaude.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+<!-- Frequently Asked Questions END -->
+
+<!-- Frequently Asked Questions END -->
+
+
+{% endblock %}

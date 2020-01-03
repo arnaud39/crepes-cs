@@ -1,0 +1,102 @@
+{% extends 'layoutx.html' %}
+
+{% block body %}
+
+<section class="overview-block-ptb  iq-bg-fixed " id ="astronaut">
+    <style>
+               
+                h2   {color:  #fe9751;}
+          
+    </style>
+    
+    <h2 class="title iq-tw-6">Problème</h2>
+    <div class="box-of-star1">
+    <div class="star star-position1"></div>
+    <div class="star star-position2"></div>
+    <div class="star star-position3"></div>
+    <div class="star star-position4"></div>
+    <div class="star star-position5"></div>
+    <div class="star star-position6"></div>
+    <div class="star star-position7"></div>
+  </div>
+  <div class="box-of-star2">
+    <div class="star star-position1"></div>
+    <div class="star star-position2"></div>
+    <div class="star star-position3"></div>
+    <div class="star star-position4"></div>
+    <div class="star star-position5"></div>
+    <div class="star star-position6"></div>
+    <div class="star star-position7"></div>
+  </div>
+  <div class="box-of-star3">
+    <div class="star star-position1"></div>
+    <div class="star star-position2"></div>
+    <div class="star star-position3"></div>
+    <div class="star star-position4"></div>
+    <div class="star star-position5"></div>
+    <div class="star star-position6"></div>
+    <div class="star star-position7"></div>
+  </div>
+  <div class="box-of-star4">
+    <div class="star star-position1"></div>
+    <div class="star star-position2"></div>
+    <div class="star star-position3"></div>
+    <div class="star star-position4"></div>
+    <div class="star star-position5"></div>
+    <div class="star star-position6"></div>
+    <div class="star star-position7"></div>
+  </div>
+  <div class="astronaut" data-js="astro">
+    <div class="head"></div>
+    <div class="arm arm-left"></div>
+    <div class="arm arm-right"></div>
+    <div class="body">
+      <div class="panel"></div>
+    </div>
+    <div class="leg leg-left"></div>
+    <div class="leg leg-right"></div>
+    <div class="schoolbag"></div>
+    </div>
+</section>
+<section class="fullscreen background">
+    <script>
+            function divtest(){
+                var pattern = Trianglify({
+                width: window.innerWidth,
+                height: window.innerHeight +50,
+                cell_size: 80,
+                x_colors:'YlOrRd',
+                
+                stroke_width: 3
+                
+              }).png();
+                var pattern64 = pattern.substr(pattern.indexOf('base64') + 7);
+    
+            var sheet = (function() {
+                var style = document.createElement("style");
+    
+                style.appendChild(document.createTextNode(""));
+    
+                document.head.appendChild(style);
+    
+                return style.sheet;
+            })();
+            sheet.insertRule(".background { background: transparent url(data:image/png;base64,"+pattern64+"); }", 0.5);
+            }
+            </script>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="heading-title">
+                    <p><br></p>
+                    <h2 class="title iq-tw-6">Commande rejetée</h2>
+                    <div class="divider"></div>
+                    <p>Pour pouvoir livrer le plus grand nombre, nous ne proposons pas plus de 100 crêpes avec la même garniture à la fois. Merci de ta comprehension.</p>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+{%endblock %}

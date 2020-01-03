@@ -1,0 +1,92 @@
+{% extends 'layoutx.html' %}
+
+{% block body %}
+<section id="iq-home" class="bannerq-bg iq-bg-fixed iq-box-shadow iq-over-black-90" style=" background: url(images/banner/bg.jpg);">
+    
+    <div class="container">
+        <div class="row banner-text">
+            <style>
+                .banner-text     {color: #fff;}
+                </style>
+            <div class="col-md-12">
+                <table class="table table-sm table-responsive-sm">
+                    <thead class="thead-dark">
+                        <tr>
+                         <th>Nom</th>
+                         <th>Nut</th>
+                         <th>CiS</th>
+                         <th>Spec</th>
+                         <th>Suc</th>
+                         <th>Conf</th>
+                         <th>Lieu</th>
+                         <th>Instructions</th>
+
+                         <th>Date</th>
+                         
+                        
+                        <th>Livraison</th>
+                        <th>Status</th>
+                        <th>Supprimer</th>
+                        -
+                        </tr>
+                    </thead>
+
+                    {% for item in items %}
+                      <tr>
+                        <td>{{item.nom}}</a></td>
+                        <td>{{item.nutella}}</a></td>
+                        <td>{{item.citronsucre}}</td>
+                        <td>{{item.speculos}}</td>
+                        <td>{{item.sucre}}</td>
+                        <td>{{item.confiture}}</td>
+                        <td>{{item.lieu}}</td>
+                        <td>{{item.instructions}}</a></td>
+                        <td>{{item.create_date}}</td>
+                
+                        
+                        
+                        {% if not(item.deliver) %}
+                        <td>
+                            <form action="{{url_for('switch_itemlvr', id=item.id)}}" method="post">
+                              <input type="hidden" name="_method" value="switch_item">
+                              <input type="submit" value="Pas faite" class="btn btn-success btn-sm"></td>
+                            </form>
+                        {% elif item.deliver %}
+                        <td>
+                            <form action="{{url_for('switch_itemlvr', id=item.id)}}" method="post">
+                                <input type="hidden" name="_method" value="switch_item">
+                                <input type="submit" value="En livraison" class="btn btn-info btn-sm">
+                            </form></td>
+                        {% endif %}
+                        {% if item.completed %}
+                        <td>
+                            <form action="{{url_for('switch_item', id=item.id)}}" method="post">
+                              <input type="hidden" name="_method" value="switch_item">
+                              <input type="submit" value="Livré" class="btn btn-success btn-sm"></td>
+                            </form>
+                        {% else %}
+                        <td>
+                            <form action="{{url_for('switch_item', id=item.id)}}" method="post">
+                                <input type="hidden" name="_method" value="switch_item">
+                                <input type="submit" value="Non livré" class="btn btn-danger btn-sm">
+                            </form></td>
+                        {% endif %}
+                    
+                        <td>
+                                <form action="{{url_for('delete_item', id=item.id)}}" method="post">
+                                  <input type="hidden" name="_method" value="DELETE">
+                                  <input type="submit" value="Delete" class="btn btn-danger btn-sm">
+                                </form>
+                            </td> 
+                      </tr>
+                      
+                    {% endfor %}
+                    
+                  </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
