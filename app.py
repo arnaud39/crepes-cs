@@ -1,3 +1,4 @@
+#auteur: Arnaud Petit 
 from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
 from functools import wraps
 from flask_mysqldb import MySQL
