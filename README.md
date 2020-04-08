@@ -10,6 +10,8 @@ J'ai repris [ce-code-CSS](https://github.com/DevCamilo/Astronaut-Animation-Css) 
 
 Le site est deployé sur Heroku. Il fonctionne avec le framework FLASK.
 
+[![crepes-cs.fr](https://i.imgur.com/3i7Wx29.jpg)](https://i.imgur.com/3i7Wx29.jpg)
+
 [![crepes-cs.fr](https://i.imgur.com/74M4tgz.png)](https://i.imgur.com/74M4tgz.png)
 
 
